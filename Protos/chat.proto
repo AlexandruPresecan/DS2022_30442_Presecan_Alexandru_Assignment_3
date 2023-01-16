@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option csharp_namespace = "DS2022_30442_Presecan_Alexandru_Assignment_3";
+
+package chat;
+
+service Chat {
+  rpc MessageStream (stream Message) returns (stream Message);
+  rpc IsTypingStream (stream IsTyping) returns (stream IsTyping);
+  rpc SeenStream (stream Seen) returns (stream Seen);
+}
+
+message Message {
+  string userName = 1;
+  string text = 2;
+}
+
+message IsTyping {
+  string userName = 1;
+}
+
+message Seen {
+  string userName = 1;
+}
